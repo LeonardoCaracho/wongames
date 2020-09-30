@@ -1,13 +1,15 @@
-import { render, screen } from '@testing-library/react'
-import { renderWithTheme } from 'utils/tests/helpers'
+import { screen } from '@testing-library/react'
+import { renderWithTheme } from '../../utils/tests/helpers'
+import 'jest-styled-components'
 
 import Logo from '.'
 
+//renderizar - render
+//selecionar o elemento a ser testado - screen
+//expect - assersion
+
 describe('<Logo />', () => {
   it('should render a white label by default', () => {
-    //renderizar - render
-    //selecionar o elemento a ser testado - screen
-    //expect - assersion
     renderWithTheme(<Logo />)
     expect(screen.getByLabelText(/Won Games/i).parentElement).toHaveStyle({
       color: '#FAFAFA'
@@ -19,5 +21,30 @@ describe('<Logo />', () => {
     expect(screen.getByLabelText(/Won Games/i).parentElement).toHaveStyle({
       color: '#030517'
     })
+  })
+
+  it('should render a bigger logo', () => {
+    renderWithTheme(<Logo size="large" />)
+    expect(screen.getByLabelText(/Won Games/i).parentElement).toHaveStyle({
+      width: '20rem'
+    })
+  })
+
+  it('should render a normal logo when size is default', () => {
+    renderWithTheme(<Logo />)
+    expect(screen.getByLabelText(/Won Games/i).parentElement).toHaveStyle({
+      width: '11rem'
+    })
+  })
+
+  it('should render a bigger logo without text on mobile', () => {
+    renderWithTheme(<Logo hideOnMobile />)
+    expect(screen.getByLabelText(/Won Games/i).parentElement).toHaveStyleRule(
+      'width',
+      '5.8rem',
+      {
+        media: '(max-width: 768px)'
+      }
+    )
   })
 })
