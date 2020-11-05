@@ -30,6 +30,6 @@ export const WithRibbon: Story<BannerProps> = (args) => (
 
 WithRibbon.args = {
   ribbon: '20% OFF',
-  ribbonSize: 'normal',
-  ribbonColor: 'secondary'
+  ribbonSize: 'small',
+  ribbonColor: 'primary'
 }
