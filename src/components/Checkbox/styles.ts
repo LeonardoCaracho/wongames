@@ -8,7 +8,10 @@ export const Wrapper = styled.main`
 
 export const Label = styled.label<Pick<CheckBoxProps, 'labelColor'>>`
   ${({ theme, labelColor }) => css`
+    cursor: pointer;
+    padding-left: ${theme.spacings.xxsmall};
     color: ${theme.colors[labelColor!]};
+    line-height: 1.8rem;
   `}
 `
 
