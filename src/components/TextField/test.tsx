@@ -42,6 +42,43 @@ describe('<TextField />', () => {
     expect(onInput).toHaveBeenCalledWith(text)
   })
 
+  it('does not change value when its disabled', async () => {
+    const onInput = jest.fn()
+    renderWithTheme(
+      <TextField
+        disabled
+        onInput={onInput}
+        label="Label"
+        labelFor="Field"
+        id="Field"
+      />
+    )
+
+    const input = screen.getByRole('textbox')
+    expect(input).toBeDisabled()
+
+    const text = 'this is us'
+    userEvent.type(input, text)
+
+    await waitFor(() => {
+      expect(input).not.toHaveValue(text)
+    })
+
+    expect(onInput).not.toHaveBeenCalled()
+  })
+
+  it('is not accessible with tab', () => {
+    renderWithTheme(
+      <TextField disabled label="Label" labelFor="Field" id="Field" />
+    )
+
+    const input = screen.getByLabelText('Label')
+    expect(document.body).toHaveFocus()
+
+    userEvent.tab()
+    expect(input).not.toHaveFocus()
+  })
+
   it('is accessible with tab', () => {
     renderWithTheme(<TextField label="Label" labelFor="Field" id="Field" />)
 
