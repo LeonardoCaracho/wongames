@@ -129,4 +129,20 @@ describe('<TextField />', () => {
 
     expect(screen.getByTestId('icon').parentElement).toHaveStyle({ order: 0 })
   })
+
+  it('renders with error', () => {
+    const { container } = renderWithTheme(
+      <TextField
+        icon={<Email data-testid="icon" />}
+        iconPosition="left"
+        label="Label"
+        labelFor="Field"
+        id="Field"
+        error="Error message"
+      />
+    )
+
+    expect(screen.getByText('Error message')).toBeInTheDocument()
+    expect(container.firstChild).toMatchSnapshot()
+  })
 })
