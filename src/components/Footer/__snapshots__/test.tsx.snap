@@ -77,6 +77,7 @@ exports[`<Footer /> should render 4 columns topics 1`] = `
     <svg
       aria-label="Won Games"
       fill="none"
+      role="img"
       viewBox="0 0 158 48"
       xmlns="http://www.w3.org/2000/svg"
     >
