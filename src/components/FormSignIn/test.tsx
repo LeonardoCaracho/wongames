@@ -4,7 +4,7 @@ import { renderWithTheme } from 'utils/tests/helpers'
 import FormSignIn from '.'
 
 describe('<FormSignIn />', () => {
-  it('should render the f orm', () => {
+  it('should render the form', () => {
     const { container } = renderWithTheme(<FormSignIn />)
 
     expect(screen.getByPlaceholderText('Email')).toBeInTheDocument()
