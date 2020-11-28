@@ -82,14 +82,6 @@ exports[`<FormSignIn /> should render the form 1`] = `
   overflow: hidden;
 }
 
-.c0 .c1 {
-  margin: 0.8rem 0;
-}
-
-.c0 .c7 {
-  margin: 3.2rem auto 1.6rem;
-}
-
 .c6 {
   display: block;
   font-size: 1.4rem;
@@ -99,6 +91,14 @@ exports[`<FormSignIn /> should render the form 1`] = `
 
 .c6:hover {
   color: #15229e;
+}
+
+.c0 .c1 {
+  margin: 0.8rem 0;
+}
+
+.c0 .c7 {
+  margin: 3.2rem auto 1.6rem;
 }
 
 .c9 {
