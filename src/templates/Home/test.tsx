@@ -47,6 +47,6 @@ describe('<Home />', () => {
     // card game ( 5 sections com 4 cards cada = 5x1 = 5)
     expect(screen.getAllByText(/population zero/i)).toHaveLength(5)
     // highlight
-    expect(screen.getAllByText(/Read Dead está de de volta!/i)).toHaveLength(3)
+    expect(screen.getAllByText(/Red Dead is back!/i)).toHaveLength(3)
   })
 })
