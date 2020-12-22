@@ -7,7 +7,7 @@ import TextField from '.'
 
 describe('<TextField />', () => {
   it('renders with label', () => {
-    renderWithTheme(<TextField label="Label" labelFor="Field" id="Field" />)
+    renderWithTheme(<TextField label="Label" name="Field" />)
 
     expect(screen.getByLabelText('Label')).toBeInTheDocument()
   })
@@ -26,9 +26,7 @@ describe('<TextField />', () => {
 
   it('changes its value when typing', async () => {
     const onInput = jest.fn()
-    renderWithTheme(
-      <TextField onInput={onInput} label="Label" labelFor="Field" id="Field" />
-    )
+    renderWithTheme(<TextField onInput={onInput} label="Label" name="Field" />)
 
     const input = screen.getByRole('textbox')
     const text = 'this is us'
@@ -45,13 +43,7 @@ describe('<TextField />', () => {
   it('does not change value when its disabled', async () => {
     const onInput = jest.fn()
     renderWithTheme(
-      <TextField
-        disabled
-        onInput={onInput}
-        label="Label"
-        labelFor="Field"
-        id="Field"
-      />
+      <TextField disabled onInput={onInput} label="Label" name="Field" />
     )
 
     const input = screen.getByRole('textbox')
@@ -68,9 +60,7 @@ describe('<TextField />', () => {
   })
 
   it('is not accessible with tab', () => {
-    renderWithTheme(
-      <TextField disabled label="Label" labelFor="Field" id="Field" />
-    )
+    renderWithTheme(<TextField disabled label="Label" name="Field" />)
 
     const input = screen.getByLabelText('Label')
     expect(document.body).toHaveFocus()
@@ -80,7 +70,7 @@ describe('<TextField />', () => {
   })
 
   it('is accessible with tab', () => {
-    renderWithTheme(<TextField label="Label" labelFor="Field" id="Field" />)
+    renderWithTheme(<TextField label="Label" name="Field" />)
 
     const input = screen.getByLabelText('Label')
     expect(document.body).toHaveFocus()
@@ -94,8 +84,7 @@ describe('<TextField />', () => {
       <TextField
         icon={<Email data-testid="icon" />}
         label="Label"
-        labelFor="Field"
-        id="Field"
+        name="Field"
       />
     )
 
@@ -108,8 +97,7 @@ describe('<TextField />', () => {
         icon={<Email data-testid="icon" />}
         iconPosition="right"
         label="Label"
-        labelFor="Field"
-        id="Field"
+        name="Field"
       />
     )
 
@@ -122,8 +110,7 @@ describe('<TextField />', () => {
         icon={<Email data-testid="icon" />}
         iconPosition="left"
         label="Label"
-        labelFor="Field"
-        id="Field"
+        name="Field"
       />
     )
 
@@ -136,8 +123,7 @@ describe('<TextField />', () => {
         icon={<Email data-testid="icon" />}
         iconPosition="left"
         label="Label"
-        labelFor="Field"
-        id="Field"
+        name="Field"
         error="Error message"
       />
     )
