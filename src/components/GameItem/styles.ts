@@ -3,7 +3,7 @@ import media from 'styled-media-query'
 
 export const Wrapper = styled.div`
   ${({ theme }) => css`
-    padding-left: ${theme.spacings.small};
+    padding: ${theme.spacings.small};
     border-bottom: 0.1rem solid ${theme.colors.lightGray};
 
     ${media.greaterThan('medium')`
@@ -62,5 +62,41 @@ export const Price = styled.div`
     border-radius: ${theme.border.radius};
     font-size: ${theme.font.sizes.small};
     font-weight: ${theme.font.bold};
+  `}
+`
+export const DownloadLink = styled.a`
+  ${({ theme }) => css`
+    color: ${theme.colors.primary};
+    margin-left: ${theme.spacings.xsmall};
+  `}
+`
+export const PaymentContent = styled.div`
+  ${({ theme }) => css`
+    color: ${theme.colors.gray};
+    font-size: ${theme.font.sizes.small};
+    display: flex;
+    flex-direction: column;
+    min-width: 28rem;
+    margin-top: ${theme.spacings.xsmall};
+    ${media.greaterThan('medium')`
+      margin-top: 0;
+      flex: 1;
+      flex-direction: column-reverse;
+      justify-content: space-between;
+      align-items: flex-end;
+    `}
+  `}
+`
+
+export const CardInfo = styled.div`
+  ${({ theme }) => css`
+    display: flex;
+    align-items: center;
+    img {
+      margin-left: ${theme.spacings.xxsmall};
+    }
+    ${media.lessThan('medium')`
+      margin-top: ${theme.spacings.xsmall};
+    `}
   `}
 `
