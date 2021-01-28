@@ -18,4 +18,11 @@ describe('<CardList />', () => {
 
     expect(container.firstChild).toMatchSnapshot()
   })
+
+  it('should render the button', () => {
+    renderWithTheme(<CardList {...props} hasButton />)
+
+    expect(screen.getAllByRole('heading')).toHaveLength(2)
+    expect(screen.getByText(/buy it now/i)).toBeInTheDocument()
+  })
 })
